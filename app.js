@@ -21,8 +21,13 @@ var parkRoutes      = require("./routes/parks"),
     indexRoutes     = require("./routes/index"),
     commentRoutes   = require("./routes/comments");
 
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/ParksAndMarks";
-mongoose.connect(url, { useNewUrlParser: true });
+// assign mongoose promise library and connect to database
+mongoose.Promise = global.Promise;
+
+var databaseUri = process.env.DATABASEURL || "mongodb://localhost:27017/ParksAndMarks";
+mongoose.connect(databaseUri, { useMongoClient: true })
+      .then(() => console.log(`Database connected`))
+      .catch(err => console.log(`Database connection error: ${err.message}`));
 
 app.set("view engine", "ejs");
 app.use(parser.urlencoded({extended:true}));
