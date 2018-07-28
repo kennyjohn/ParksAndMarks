@@ -22,7 +22,7 @@ var parkRoutes      = require("./routes/parks"),
     commentRoutes   = require("./routes/comments");
 
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/ParksAndMarks";
-mongoose.connect(url);
+mongoose.connect(url, { useNewUrlParser: true });
 
 app.set("view engine", "ejs");
 app.use(parser.urlencoded({extended:true}));
