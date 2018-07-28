@@ -21,10 +21,9 @@ var parkRoutes      = require("./routes/parks"),
     indexRoutes     = require("./routes/index"),
     commentRoutes   = require("./routes/comments");
 
-// LOCAL DEV PURPOSES
-// mongoose.connect('mongodb://localhost:27017/ParksAndMarks', { useNewUrlParser: true });
-// HEROKU DEV PURPOSES
-mongoose.connect('mongodb://kenny:averysecurepassword1@ds257981.mlab.com:57981/parksandmarks');
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/ParksAndMarks";
+mongoose.connect(url);
+
 app.set("view engine", "ejs");
 app.use(parser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
@@ -47,8 +46,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next) {
-    // whatever is in res.locals is available inside of our template
-    // console.log("req.user: " + req.user);
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
