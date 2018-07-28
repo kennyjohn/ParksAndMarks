@@ -21,15 +21,6 @@ var parkRoutes      = require("./routes/parks"),
     indexRoutes     = require("./routes/index"),
     commentRoutes   = require("./routes/comments");
 
-// // assign mongoose promise library and connect to database
-// mongoose.Promise = global.Promise;
-//
-// const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ParksAndMarks';
-//
-// mongoose.connect(databaseUri, { useMongoClient: true, useNewUrlParser: true })
-//       .then(() => console.log(`Database connected`))
-//       .catch(err => console.log(`Database connection error: ${err.message}`));
-
 // LOCAL DEV PURPOSES
 // mongoose.connect('mongodb://localhost:27017/ParksAndMarks', { useNewUrlParser: true });
 // HEROKU DEV PURPOSES
