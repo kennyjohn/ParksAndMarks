@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<% include partials/header %>
+<html>
+    <head>
+        <title>Parks and 'Marks</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- CSS specific to the landing page -->
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <!-- Makes more crossbrowser compatible -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+
+    <div id="landing-header">
+ 		<h1>Welcome to Parks and 'Marks!</h1>
+        <a href="/parks" class="btn btn-md btn-success">View All Parks</a>
+		<a href="/landmarks" class="btn btn-md btn-success">View All Landmarks</a>
+    </div>
+
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<% include partials/footer %>

@@ -1,0 +1,59 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <p class="back-to">
+        <a href="/landmarks">Back to landmarks</a>
+    </p>
+    <div class="row">
+        <div class="col-lg-9 col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= landmark.image %>">
+            </div>
+           <h4 class="detail-header">
+               <span>Landmark Site Details</span>
+           </h4>
+           <p class="profile-info">
+               Contact Number: 626-246-4441
+           </p>
+           <div class="portfolio">
+                <div class="landmark-name">
+                    <h4><a><%= landmark.name %></a></h4>
+                </div>
+                <div class="landmark-description">
+                    <p><%= landmark.description %></p>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/landmarks/<%= landmark._id %>/comments/new">Add a new comment</a>
+                </div>
+                <% landmark.comments.forEach(function(comment) { %>
+                <div class="user-comment">
+                    <% var username = comment.author.username.charAt(0).toUpperCase() + comment.author.username.substr(1); %>
+                   <strong><%= username %></strong>
+                   <p><%= comment.text %></p>
+                   <% if(currentUser && comment.author.id == currentUser._id.toString()) { %>
+                       <a class="btn btn-xs btn-warning" href="/landmarks/<%= landmark._id %>/comments/<%= comment._id %>/edit">
+                           Edit
+                       </a>
+                       <form class="delete-button" action="/landmarks/<%= landmark._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                        <!-- a form element is a block element by default -->
+                           <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                       </form>
+                   <% } %>
+
+                </div>
+                <% }); %>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="affix" style="padding: 15px 25px 0 0">
+                <h4><a><%= landmark.name %></a></h4>
+                <p><%= landmark.description %></p>
+           </div>
+       </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

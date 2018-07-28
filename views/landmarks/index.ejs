@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <h1>San Gabriel Landmarks</h1>
+        <p>We are accepting landmark name suggestions to add to our database. Once we receive and confirm that your submission is located in the beautiful city of San Gabriel,
+        we will display the landmark here and you will be able to contribute your experiences with the different landmarks!</p>
+        <p>
+            <a class="btn btn-primary" href="/landmarks/upload">Make a suggestion!</a>
+        </p>
+    </header>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% landmarks.forEach(function(landmark) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= landmark.image %>" alt="<%= landmark.name %>">
+                    <div class="caption text-center">
+                         <h4><strong><%= landmark.name %></strong></h4>
+                    <p>
+                        <a href="/landmarks/<%= landmark._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

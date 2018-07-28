@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <h1>San Gabriel Parks</h1>
+        <p>We are accepting park name suggestions to add to our database. Once we receive and confirm that your submission is located in the beautiful city of San Gabriel,
+        we will display the park here and you will be able to contribute your experiences with the different parks!</p>
+        <p>
+            <a class="btn btn-primary" href="/parks/upload">Make a suggestion!</a>
+        </p>
+    </header>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% parks.forEach(function(park) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= park.image %>" alt="<%= park.name %>">
+                    <div class="caption text-center">
+                         <h4><strong><%= park.name %></strong></h4>
+                    <p>
+                        <a href="/parks/<%= park._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

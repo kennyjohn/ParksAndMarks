@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.navbar {
+    z-index: 2;
+    border-radius: 0px;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.wrapper .container {
+    overflow: auto;
+    padding-bottom: 75px;
+}
+
+.navbar-brand { /* Centers an element in the center of a navbar */
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+footer {
+    color: black;
+    position: relative;
+    height: 50px;
+    margin-top: -50px;
+    clear: both;
+    float: right;
+    padding-right: 10px;
+}
+
+.thumbnail {
+    background: lightgrey;
+}
+
+.park-name a, .detail-header span, .affix a {
+    color: black;
+    padding: 10px 0;
+    border-bottom: 3px solid green;
+}
+
+.park-name a:hover, .affix a {
+    color: black;
+    text-decoration: none;
+}
+
+.park-description p, .profile-info, .affix p {
+    padding: 10px 0;
+}
+
+.user-comment {
+    padding: 10px 25px;
+    margin: 10px;
+}
+
+.user-comment:nth-child(even) {
+    background: white;
+    border-top: 1px solid rgba(191, 195, 191, 0.7);
+    border-bottom: 1px solid rgba(191, 195, 191, 0.7);
+}
+
+.delete-button {
+    display: inline;
+}
+
+.back-to {
+    margin: 15px 0;
+}
+
+.alert {
+    margin-bottom: 0;
+}
+
+#brand, #brand:hover {
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+@media (min-width: 992px) {
+    .portfolio {
+        display: none;
+    }
+}

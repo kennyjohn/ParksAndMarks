@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row"></div>
+        <h1 style="text-align: center">Submit a new landmark</h1>
+        <div style="width: 30%; margin: 50px auto;">
+            <form action="/landmarks" method="POST">
+                <div class="form-group">
+                     <input class="form-control" type="text" name="name" placeholder="Park name">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image" placeholder="Image URL (Optional)">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="description" placeholder="Description">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/landmarks">Back to list of landmarks</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
