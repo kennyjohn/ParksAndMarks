@@ -21,7 +21,16 @@ var parkRoutes      = require("./routes/parks"),
     indexRoutes     = require("./routes/index"),
     commentRoutes   = require("./routes/comments");
 
-mongoose.connect('mongodb://localhost:27017/ParksAndMarks', { useNewUrlParser: true });
+// assign mongoose promise library and connect to database
+mongoose.Promise = global.Promise;
+
+const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/ParksAndMarks';
+
+mongoose.connect(databaseUri, { useMongoClient: true, useNewUrlParser: true })
+      .then(() => console.log(`Database connected`))
+      .catch(err => console.log(`Database connection error: ${err.message}`));
+
+// mongoose.connect('mongodb://localhost:27017/ParksAndMarks', { useNewUrlParser: true });
 app.set("view engine", "ejs");
 app.use(parser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
@@ -57,7 +66,7 @@ app.use("/parks", parkRoutes);
 app.use("/landmarks", landmarkRoutes);
 app.use(commentRoutes);
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Parks And 'Marks Server Started...");
 });
 
