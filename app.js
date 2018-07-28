@@ -24,10 +24,11 @@ var parkRoutes      = require("./routes/parks"),
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-var databaseUri = process.env.DATABASEURL || "mongodb://localhost/ParksAndMarks";
-mongoose.connect(databaseUri, { useMongoClient: true })
+var databaseUri = process.env.DATABASEURI || "mongodb://localhost:27017/ParksAndMarks";
+mongoose.connect(databaseUri)
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
+console.log(process.env.DATABASEURI);
 
 app.set("view engine", "ejs");
 app.use(parser.urlencoded({extended:true}));
