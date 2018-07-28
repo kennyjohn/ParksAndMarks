@@ -19,9 +19,9 @@ router.post("/register", function(req, res) {
     User.register(newUser, req.body.password, function(err, user) {
         if(err) {
             // Error here if username is taken, etc...
-            req.flash("error", err.message + "!");
             console.log("There was an issue during registration!");
-            return res.render("register");
+            req.flash("error", err.message + "!");
+            return res.redirect("/register");
         } else {
             // "local" is a part of the documentation
             passport.authenticate("local")(req, res, function() {
