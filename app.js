@@ -23,12 +23,10 @@ var parkRoutes      = require("./routes/parks"),
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
-
 var databaseUri = process.env.DATABASEURI || "mongodb://localhost:27017/ParksAndMarks";
 mongoose.connect(databaseUri)
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
-console.log(process.env.DATABASEURI);
 
 app.set("view engine", "ejs");
 app.use(parser.urlencoded({extended:true}));
@@ -63,7 +61,7 @@ app.use("/parks", parkRoutes);
 app.use("/landmarks", landmarkRoutes);
 app.use(commentRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, process.env.IP, function(){
     console.log("Parks And 'Marks Server Started...");
 });
 

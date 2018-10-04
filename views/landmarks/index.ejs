@@ -9,13 +9,14 @@
             <a class="btn btn-primary" href="/landmarks/upload">Make a suggestion!</a>
         </p>
     </header>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+    <div class="row centered">
         <% landmarks.forEach(function(landmark) { %>
-            <div class="col-md-3 col-sm-6">
+            <div class="landmarks col-md-3 col-sm-6">
                 <div class="thumbnail">
-                    <img src="<%= landmark.image %>" alt="<%= landmark.name %>">
+                    <a download="landmark-photo" href="<%= landmark.image %>"><img src="<%= landmark.image %>" alt="<%= landmark.name %>"></a>
                     <div class="caption text-center">
                          <h4><strong><%= landmark.name %></strong></h4>
+                         <p class="address-subtitle"><em><%= landmark.address %></em></p>
                     <p>
                         <a href="/landmarks/<%= landmark._id %>" class="btn btn-primary">More Info</a>
                     </p>

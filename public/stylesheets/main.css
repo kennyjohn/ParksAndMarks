@@ -40,7 +40,31 @@ footer {
 }
 
 .thumbnail {
-    background: lightgrey;
+    background: #e6e6e6;
+}
+
+.parks > .thumbnail img {
+    min-height: 168px;
+    max-height: 168px;
+}
+
+.parks .thumbnail {
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.landmarks > .thumbnail img {
+    min-height: 150px;
+    max-height: 150px;
+}
+
+.landmarks .thumbnail {
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.address-subtitle {
+    font-size: 12px;
 }
 
 .park-name a, .detail-header span, .affix a {
@@ -54,8 +78,13 @@ footer {
     text-decoration: none;
 }
 
-.park-description p, .profile-info, .affix p {
+.profile-info {
+    padding: 20px 0 15px 0;
+}
+
+.row .affix p {
     padding: 10px 0;
+    width: 250px;
 }
 
 .user-comment {
