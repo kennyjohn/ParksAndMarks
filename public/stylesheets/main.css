@@ -46,6 +46,7 @@ footer {
 .parks > .thumbnail img {
     min-height: 168px;
     max-height: 168px;
+    object-fit: cover;
 }
 
 .parks .thumbnail {
@@ -56,6 +57,7 @@ footer {
 .landmarks > .thumbnail img {
     min-height: 150px;
     max-height: 150px;
+    object-fit: cover;
 }
 
 .landmarks .thumbnail {
