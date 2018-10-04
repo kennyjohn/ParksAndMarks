@@ -61,7 +61,7 @@ app.use("/parks", parkRoutes);
 app.use("/landmarks", landmarkRoutes);
 app.use(commentRoutes);
 
-app.listen(3000, process.env.IP, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Parks And 'Marks Server Started...");
 });
 
